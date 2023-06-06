@@ -7,7 +7,7 @@ public class ResponsePattern {
 
 
     //need to dynamically get this field from query?
-    @SerializedName(value = "1335913", alternate = {"1337254"})
+    @SerializedName(value = "1335913", alternate = {"1337254", "asdasdasd"})
     @Expose(deserialize = true)
     private ResponsePatternAttributes pattern;
 

@@ -35,6 +35,7 @@ public class RequestTest {
         //Next steps would be to
         //      How to get and set serialized name of pattern...
         //      create more accurate classes and work through them
-        assertEquals("test", ac.getPatterns().getPatternAttributes().getTitle());
+        //assertEquals("test", ac.getPatterns().getPatternAttributes().getTitle());
+        assertEquals("test", ac.getPatterns().getPatternAttributes().getPhotos().get(0).getMedium_url());
     }
 }

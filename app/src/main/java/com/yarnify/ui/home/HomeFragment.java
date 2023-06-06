@@ -44,12 +44,18 @@ public class HomeFragment extends Fragment {
         Request request =
                 new Request("patterns.json?ids=1335913");
 
+        Request request2 =
+                new Request("patterns.json?ids=1337254");
+
 
         ToPojo toPojo =
                 new ToPojo();
 
+
+
         ResponsePatternList ac = toPojo.fromJSONSimple(request.getResponse());
 
+        ResponsePatternList ac2 = toPojo.fromJSONSimple(request2.getResponse());
 
         // I can make cleaner methods for these, but this is an example of how the classes
         // are deserialize and accessed
