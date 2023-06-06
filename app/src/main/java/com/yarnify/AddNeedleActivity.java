@@ -15,11 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.core.view.WindowCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,24 +31,31 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.yarnify.databinding.ActivityAddNeedleBinding;
 
 import com.example.yarnify.R;
+import com.yarnify.model.Needle;
+import com.yarnify.viewmodel.NeedleViewModel;
 
 public class AddNeedleActivity extends AppCompatActivity {
     private Context context = this;
-    private String type;
-    private String craft;
-    private int metric;
-    private boolean isHook, metricUnits;
-    private String us;
+    private Button saveNeedleButton;
+    private EditText lengthText;
+    private NeedleViewModel needleViewModel;
+    private Needle needle;
+    private String craft, type, us;
+    private double metric;
     private int length;
+    private boolean isHook, metricUnits;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_needle);
+        needleViewModel = new ViewModelProvider(this).get(NeedleViewModel.class);
         setBackButton();
 
         //Type RadioButton
+        //The options in the TypeSpinner are changed depending on which RadioButton is checked
+        //TODO: remember the last type selected when the radio button goes back and forth
         //https://stackoverflow.com/questions/22943045/why-oncheckedchanged-for-radiobutton-doesnt-get-raised-in-android
         RadioGroup typeRadioGroup = (RadioGroup) findViewById(R.id.craftType);
         typeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -83,6 +93,8 @@ public class AddNeedleActivity extends AppCompatActivity {
         setTypeSpinner(R.array.all_needle_type_choices);
 
         //SizeUnit RadioButton
+        //The size options in the size spinner update according to which radio button is selected
+        //TODO: align the us and metric choices so if a user selects a metric option and changes to us, the equivalent option is already selected.
         //https://stackoverflow.com/questions/22943045/why-oncheckedchanged-for-radiobutton-doesnt-get-raised-in-android
         RadioGroup sizeUnitRadioGroup = (RadioGroup) findViewById(R.id.needleSizeUnit);
         sizeUnitRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -109,6 +121,30 @@ public class AddNeedleActivity extends AppCompatActivity {
         });
 
         setSizeSpinner(R.array.needle_size_metric_choices);
+
+        lengthText = (EditText) findViewById(R.id.needleLength);
+
+        //When the save button is clicked, create an instance of a Needle, save it in the
+        //database, and return to the last activity.
+        saveNeedleButton = findViewById(R.id.saveNeedleButton);
+        saveNeedleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //https://www.geeksforgeeks.org/numberformatexception-in-java-with-examples/
+                try {
+                    length = Integer.parseInt(lengthText.getText().toString());
+                } catch (NumberFormatException e) {
+                    Log.e("NumberFormatException", e.toString());
+                }
+                String brand = "TBD";
+                String material = "TBD";
+                needle = new Needle(type, craft, metric, isHook, us, length, brand,
+                        material, 1);
+                needleViewModel.addNeedle(needle);
+                finish();
+            }
+        }
+        );
     }
 
     /*
@@ -151,8 +187,11 @@ public class AddNeedleActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(metricUnits){
                     Log.i("Metric Units are", (String) parent.getItemAtPosition(position));
+                    String metricSelection = (String) parent.getItemAtPosition(position);
+                    metric = Double.parseDouble(metricSelection);
                 } else {
                     Log.i("US Units are", (String) parent.getItemAtPosition(position));
+                    us = parent.getItemAtPosition(position).toString();
                 }
             }
             @Override

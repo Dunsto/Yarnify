@@ -2,11 +2,14 @@ package com.yarnify.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.squareup.picasso.Picasso;
 
 @Entity
 public class Pattern implements Parcelable {
@@ -20,7 +23,7 @@ public class Pattern implements Parcelable {
     private long mUpdateTime;
 
     @ColumnInfo(name="image")
-    private int mImageResource;
+    private String mImageResource;
 
     @NonNull
     @ColumnInfo(name="title")
@@ -36,8 +39,11 @@ public class Pattern implements Parcelable {
     @ColumnInfo(name="patternURL")
     private String mURL;
 
-    @ColumnInfo(name="totalYardage")
-    private int mTotalYardage;
+    @ColumnInfo(name="minYardage")
+    private int mMinYardage;
+
+    @ColumnInfo(name="maxYardage")
+    private int mMaxYardage;
 
     //TODO
 
@@ -45,14 +51,19 @@ public class Pattern implements Parcelable {
 
     //FK: pattern_needle_sizes
 
+    public Pattern() {
+        // Empty constructor required by Room and Parcelable
+    }
+
     // CONSTRUCTOR
-    public Pattern(int imageResource, @NonNull String title, @NonNull String creator, String craft, String mURL, int totalYardage) {
-        this.mImageResource = imageResource;
+    public Pattern(String image, @NonNull String title, @NonNull String creator, String craft, String patternURL, int minYardage, int maxYardage) {
+        this.mImageResource = image;
         this.mTitle = title;
         this.mCreator = creator;
         this.mCraft = craft;
-        this.mURL = mURL;
-        this.mTotalYardage = totalYardage;
+        this.mURL = patternURL;
+        this.mMinYardage = minYardage;
+        this.mMaxYardage = maxYardage;
         this.mUpdateTime = System.currentTimeMillis();
     }
 
@@ -67,8 +78,8 @@ public class Pattern implements Parcelable {
     public long getUpdateTime() { return  mUpdateTime; }
     public void setUpdateTime(long updateTime){ this.mUpdateTime = updateTime; }
 
-    public int getImageResource() { return mImageResource; }
-    public void setImageResource(int imageResource) { this.mImageResource = imageResource; }
+    public String getImageResource() { return mImageResource; }
+    public void setImageResource(String imageResource) { this.mImageResource = imageResource; }
 
     public String getTitle() { return mTitle; }
     public void setTitle(String title) { this.mTitle = title; }
@@ -82,8 +93,11 @@ public class Pattern implements Parcelable {
     public String getURL() { return mURL; }
     public void setURL(String URL) { this.mURL = URL; }
 
-    public int getTotalYardage() { return mTotalYardage; }
-    public void setTotalYardage(int totalYardage) { this.mTotalYardage = totalYardage; }
+    public int getMinYardage() { return mMinYardage; }
+    public void setMinYardage(int minYardage) { this.mMinYardage = minYardage; }
+
+    public int getMaxYardage() { return mMaxYardage; }
+    public void setMaxYardage(int maxYardage) { this.mMaxYardage = maxYardage; }
 
 
 
@@ -91,12 +105,13 @@ public class Pattern implements Parcelable {
     //allows instances of this object to be passed through activities
 
     protected Pattern(Parcel in) {
-        mImageResource = in.readInt();
+        mImageResource = in.readString();
         mTitle = in.readString();
         mCreator = in.readString();
         mCraft = in.readString();
         mURL = in.readString();
-        mTotalYardage = in.readInt();
+        mMinYardage = in.readInt();
+        mMaxYardage = in.readInt();
     }
 
     public static final Parcelable.Creator<Pattern> CREATOR = new Parcelable.Creator<Pattern>() {
@@ -118,12 +133,13 @@ public class Pattern implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeInt(mImageResource);
+        parcel.writeString(mImageResource);
         parcel.writeString(mTitle);
         parcel.writeString(mCreator);
         parcel.writeString(mCraft);
         parcel.writeString(mURL);
-        parcel.writeInt(mTotalYardage);
+        parcel.writeInt(mMinYardage);
+        parcel.writeInt(mMaxYardage);
     }
 }
 

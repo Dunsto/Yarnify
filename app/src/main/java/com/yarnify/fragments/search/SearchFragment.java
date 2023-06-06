@@ -1,4 +1,4 @@
-package com.yarnify.ui.search;
+package com.yarnify.fragments.search;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,9 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.yarnify.databinding.FragmentSearchBinding;
 import com.example.yarnify.databinding.FragmentSearchBinding;
 
 public class SearchFragment extends Fragment {

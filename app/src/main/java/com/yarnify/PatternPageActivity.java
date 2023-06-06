@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.yarnify.R;
+import com.squareup.picasso.Picasso;
 import com.yarnify.model.Pattern;
 import com.yarnify.repo.Repository;
 import com.yarnify.viewmodel.PatternViewModel;
@@ -57,12 +58,13 @@ public class PatternPageActivity extends AppCompatActivity {
         Pattern pat = intent.getParcelableExtra("clicked_item"); //grabs parceled patternObject that was clicked on to use in this class
 
         //sets patternObject's data to the pattern page's layout views
-        image.setImageResource(pat.getImageResource());
+        Picasso.get().load(pat.getImageResource()).into(image);
+        //image.setImageResource(pat.getImageResource());
         text1.setText(pat.getTitle());
         text2.setText("by " + pat.getCreator());
         text3.setText("Craft: " + pat.getCraft());
         text4.setText("Pattern's URL: " + pat.getURL());
-        text5.setText("Total Yardage: " + pat.getTotalYardage());
+        text5.setText("Yardage: " + pat.getMinYardage() + " - " + pat.getMaxYardage() + " yards");
 
         //observes whether this pattern has been saved or not and updates the saved button's text as well as the isSaved boolean
         LiveData<Integer> patternCountLiveData = patternViewModel.getPatternCountLiveData(pat.getTitle(), pat.getCreator());
@@ -101,7 +103,7 @@ public class PatternPageActivity extends AppCompatActivity {
         // Get the support action bar
         ActionBar actionBar = getSupportActionBar();
         // Set the title
-        actionBar.setTitle("Saved Patterns");
+        actionBar.setTitle("");
         // Enable the back button
         actionBar.setDisplayHomeAsUpEnabled(true);
         // Set a custom drawable for the up indicator to change its color

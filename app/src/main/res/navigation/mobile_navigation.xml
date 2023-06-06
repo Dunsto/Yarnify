@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.yarnify.ui.home.HomeFragment"
+        android:name="com.yarnify.fragments.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.yarnify.ui.search.SearchFragment"
+        android:name="com.yarnify.fragments.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.yarnify.ui.profile.ProfileFragment"
+        android:name="com.yarnify.fragments.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -47,11 +48,11 @@ public class SavedPatternsActivity extends AppCompatActivity {
     public void setUpRecyclerView(Context context) {
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView2); //initialize the RecyclerView from the binding object
         mRecyclerView.setHasFixedSize(true); //the size of the RecyclerView will remain constant and won't change as the contents of the adapter change
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context); //LinearLayoutManager lays out items in a RecyclerView in a vertical fashion
-        RecyclerView.Adapter mAdapter = new cardAdapter(savedPatternExampleList); //A cardAdapter is a custom adapter class that provides the data to the RecyclerView to display.
-        //The exampleList is passed to the constructor and contains the list of pattern objects that will be displayed in the RecyclerView.
-        mRecyclerView.setLayoutManager(mLayoutManager); //ensures that the RecyclerView knows how to lay out its items
-        mRecyclerView.setAdapter(mAdapter); //sets adapter
+        // Use StaggeredGridLayoutManager instead of LinearLayoutManager
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
+        RecyclerView.Adapter mAdapter = new cardAdapter(savedPatternExampleList);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     public void setBackButton() {
@@ -79,4 +80,14 @@ public class SavedPatternsActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    /*public void setUpRecyclerView(Context context) {
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView2); //initialize the RecyclerView from the binding object
+        mRecyclerView.setHasFixedSize(true); //the size of the RecyclerView will remain constant and won't change as the contents of the adapter change
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context); //LinearLayoutManager lays out items in a RecyclerView in a vertical fashion
+        RecyclerView.Adapter mAdapter = new cardAdapter(savedPatternExampleList); //A cardAdapter is a custom adapter class that provides the data to the RecyclerView to display.
+        //The exampleList is passed to the constructor and contains the list of pattern objects that will be displayed in the RecyclerView.
+        mRecyclerView.setLayoutManager(mLayoutManager); //ensures that the RecyclerView knows how to lay out its items
+        mRecyclerView.setAdapter(mAdapter); //sets adapter
+    }*/
 }

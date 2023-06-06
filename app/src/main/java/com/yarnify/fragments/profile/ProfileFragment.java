@@ -1,4 +1,4 @@
-package com.yarnify.ui.profile;
+package com.yarnify.fragments.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.yarnify.R;
-import com.example.yarnify.databinding.FragmentProfileBinding;
 import com.example.yarnify.databinding.FragmentProfileBinding;
 import com.yarnify.NeedleListActivity;
 import com.yarnify.SavedPatternsActivity;

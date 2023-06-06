@@ -5,6 +5,7 @@
     android:id="@+id/Rel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#463D55"
     android:scrollbars="vertical"
     tools:context="com.yarnify.SavedPatternsActivity">
 
@@ -13,5 +14,7 @@
         android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="#463D55" />
 </RelativeLayout>

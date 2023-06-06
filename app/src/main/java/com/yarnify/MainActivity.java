@@ -14,11 +14,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yarnify.API.Request;
 import com.yarnify.viewmodel.PatternViewModel;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class MainActivity extends AppCompatActivity {
 
 
     private ActivityMainBinding binding;
     private PatternViewModel patternViewModel;
+    //background thread for API request
+    private static final ExecutorService networkExecutorService =
+            Executors.newFixedThreadPool(4);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +36,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide(); //hides title
         setUpBottomNav();
 
-        //this can be used to nuke the pattern table
-        //patternViewModel = new ViewModelProvider(this).get(PatternViewModel.class);
-        //patternViewModel.deleteAllPatterns();
+        networkExecutorService.execute(() -> {
+            Request request = new Request("patterns.json?ids=1335913");
+        });
 
-        Request request =
-                new Request("patterns.json?ids=1335913");
     }
 
     public void setUpBottomNav() {

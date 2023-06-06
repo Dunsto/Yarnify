@@ -14,6 +14,9 @@ public class ResponsePatternAttributes {
     private ResponseAttributeCraft craft;
     private ResponsePatternAuthor pattern_author;
     private ArrayList<ResponsePatternAttributesPhoto> photos;
+    private String permalink;
+    private int yardage;
+    private int yardage_max;
 
     public String getTitle() {
         return title;
@@ -30,4 +33,10 @@ public class ResponsePatternAttributes {
     public ArrayList<ResponsePatternAttributesPhoto> getPhotos() {
         return photos;
     }
+
+    public String getPermalink() { return permalink; }
+
+    public int getMinYardage() { return yardage; }
+
+    public int getMaxYardage() { return yardage_max; }
 }

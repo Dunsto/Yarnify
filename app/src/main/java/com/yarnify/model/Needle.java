@@ -29,7 +29,7 @@ public class Needle {
     //Metric designation for hook size
     @NonNull
     @ColumnInfo(name="metric")
-    private int mMetric;
+    private double mMetric;
 
     //Boolean true if crochet hook
     @ColumnInfo(name="isHook")
@@ -54,7 +54,7 @@ public class Needle {
     private int mQty;
 
     //CONSTRUCTOR
-    public Needle(@NonNull String type, String craft, int metric, boolean isHook,
+    public Needle(@NonNull String type, String craft, double metric, boolean isHook,
                   String us, int length, String brand, String material, int qty){
         mType = type;
         mCraft = craft;
@@ -85,8 +85,8 @@ public class Needle {
     public String getCraft() { return mCraft; }
     public void setCraft(String craft){ this.mCraft = craft; }
 
-    public int getMetric() { return mMetric; }
-    public void setMetric(int metric) { this.mMetric = metric; }
+    public double getMetric() { return mMetric; }
+    public void setMetric(double metric) { this.mMetric = metric; }
 
     public boolean getIsHook() { return mIsHook; }
     public void setIsHook(boolean isHook) { this.mIsHook = isHook; }
