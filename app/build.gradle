@@ -15,6 +15,15 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Hiding the API Key. Use local.properties to place API_KEY=$insertApiKeyHere$
+        // Make sure local.properties is in git.ignore
+        /*  It loads from the rootProject file "local properties" to get the API Key so it can be used
+        in the buildConfigField and eventually globally. */
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
     }
 
     buildTypes {

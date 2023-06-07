@@ -1,7 +1,12 @@
 
 package com.yarnify.API;
 import static android.content.ContentValues.TAG;
+import static com.example.yarnify.BuildConfig.API_KEY;
+
 import android.util.Log;
+
+import com.example.yarnify.BuildConfig;
+
 import java.io.IOException;
 import okhttp3.OkHttpClient;
 
@@ -26,6 +31,7 @@ public class Request {
         this.response = requestResponse(url);
     }
 
+
     private String requestResponse(String url){
         String responseString = "";
 
@@ -34,7 +40,7 @@ public class Request {
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .url("https://api.ravelry.com/" + url)
                 .method("GET", null)
-                .addHeader("Authorization", "Basic cmVhZC1lZTgzYjdmMWNlMmE0ZjQ1YWFmOGQxYTkwNzUwMGM2ZDpWWUFRc0M4VTYyN1ZUNUl1UHY5eS9ZdVFEVWJIUVpTL1h0aXFJNVRi")
+                .addHeader("Authorization", API_KEY)
                 .build();
         try {
             okhttp3.Response response = client.newCall(request).execute();
