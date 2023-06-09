@@ -15,6 +15,9 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  * Other TEST
+ * "Should contain the tests that run on real or virtual devices.
+ * Such tests include integration tests, end-to-end tests, and
+ * other tests where the JVM alone cannot validate app's functionality.
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
