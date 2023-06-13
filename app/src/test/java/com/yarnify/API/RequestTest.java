@@ -1,4 +1,5 @@
 /*
+
 package com.yarnify.API;
 
 import static org.junit.Assert.assertEquals;
@@ -87,4 +88,6 @@ public class RequestTest {
         String permalink = "https://www.ravelry.com/patterns/library/" + ac.getPatterns().getPatternAttributes().getPermalink();
         assertEquals("https://www.ravelry.com/patterns/library/schelpje", permalink);
     }
-}*/
+}
+
+*/
