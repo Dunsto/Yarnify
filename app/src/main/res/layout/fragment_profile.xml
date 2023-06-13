@@ -47,6 +47,21 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
+        android:id="@+id/yarnListButton"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@color/light_purple"
+        android:onClick="displayYarnList"
+        android:radius="32dp"
+        android:text="Yarns"
+        android:textColor="@color/light_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savedPatternsButton" />
+
+    <Button
         android:id="@+id/needleListButton"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -59,5 +74,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savedPatternsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/yarnListButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

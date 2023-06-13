@@ -14,6 +14,7 @@ import com.example.yarnify.R;
 import com.example.yarnify.databinding.FragmentProfileBinding;
 import com.yarnify.NeedleListActivity;
 import com.yarnify.SavedPatternsActivity;
+import com.yarnify.YarnListActivity;
 
 public class ProfileFragment extends Fragment {
 
@@ -26,12 +27,23 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         Button savedPatternsButton = root.findViewById(R.id.savedPatternsButton);
+        Button displayYarnList = root.findViewById(R.id.yarnListButton);
         Button displayNeedleList = root.findViewById(R.id.needleListButton);
+
         savedPatternsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Launch the SavedPatternsActivity
                 Intent intent = new Intent(getActivity(), SavedPatternsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        displayYarnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Launch the SavedPatternsActivity
+                Intent intent = new Intent(getActivity(), YarnListActivity.class);
                 startActivity(intent);
             }
         });

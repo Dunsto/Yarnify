@@ -1,7 +1,22 @@
+/***************************************************************************************
+ * Title: Testing the Un-Testable With Android Architecture Components - Room Queries
+ * Author: Kapil Bakshi
+ * Date: February 4, 2018
+ * Code version: Java
+ * Availability: https://proandroiddev.com/testing-the-un-testable-and-beyond-with-android-architecture-components-part-1-testing-room-4d97dec0f451
+ *
+ ***************************************************************************************/
+
+/***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+ ***************************************************************************************/
+
 package com.yarnify.repo;
-
-
-import static org.junit.Assert.assertNotEquals;
 
 import android.content.Context;
 
@@ -26,7 +41,6 @@ import java.io.IOException;
 @RunWith(AndroidJUnit4.class)
 public class LocalDatabaseTest extends TestCase {
 
-    //https://proandroiddev.com/testing-the-un-testable-and-beyond-with-android-architecture-components-part-1-testing-room-4d97dec0f451
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
 

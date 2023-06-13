@@ -1,9 +1,17 @@
+/***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+ ***************************************************************************************/
+
 package com.yarnify.repo;
 
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.room.Room;
 
 import com.yarnify.model.Needle;
@@ -17,7 +25,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-
 public class Repository {
     private static Repository mRepository;
     private final UserDAO mUserDAO;
@@ -26,7 +33,8 @@ public class Repository {
     private final PatternDAO mPatternDAO;
     private LiveData<Integer> patternCountLiveData;
 
-    //LiveData automatically uses a thread, so the ExecutorService will be used to insert/update/delete
+    //ExecutorService creates background threads.
+    //LiveData automatically uses a thread, so it will be used to insert/update/delete
     private static final ExecutorService mDatabaseExecutor =
             Executors.newFixedThreadPool(4);
 
@@ -86,7 +94,6 @@ public class Repository {
             mYarnDAO.updateYarn(yarn);
         });
     }
-
 
     public void deleteYarn(Yarn yarn) {
         mDatabaseExecutor.execute(() -> {
@@ -180,7 +187,6 @@ public class Repository {
         patternCountLiveData = mPatternDAO.countPatterns2(title, creator);
         return patternCountLiveData;
     }
-
 
     /*submits the query to the mDatabaseExecutor as a Callable task using submit(). The submit()
     method returns a Future object that represents the result of the query. Then, the method waits

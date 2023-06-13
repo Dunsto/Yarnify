@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- ***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+*************************************************************************************** -->
+
+
+<!-- ***************************************************************************************
+* Title: How do I change the text style of a spinner?
+* Author: Joshua Pinter
+* Date: January 16, 2014
+* Code version: xml
+* Availability: https://stackoverflow.com/questions/3205387/how-do-i-change-the-text-style-of-a-spinner
+*
+*************************************************************************************** -->
+
 <resources>
     <style name="SpinnerTextViewItem" parent="@android:style/Widget.TextView" >
         <item name="android:textSize" >24dp</item>
+        <item name="android:textColor">@color/dark_purple</item>
         <item name="android:textStyle" >bold</item>
+    </style>
+
+    <style name="SmallRadioButtonStyle">
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/dark_purple</item>
     </style>
 

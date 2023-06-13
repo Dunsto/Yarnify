@@ -1,3 +1,12 @@
+/***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+ ***************************************************************************************/
+
 package com.yarnify.viewmodel;
 
 import android.app.Application;
@@ -12,7 +21,7 @@ import java.util.List;
 
 public class NeedleViewModel extends AndroidViewModel {
 
-    //access the Repository in the constructor of this viewModel
+    //Access the Repository in the constructor of this viewModel
     private Repository repository;
     public NeedleViewModel(Application application){
         super(application);
@@ -43,5 +52,4 @@ public class NeedleViewModel extends AndroidViewModel {
     public void deleteNeedle(long id) {
         repository.deleteNeedle(id);
     }
-
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+*************************************************************************************** -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.yarnify.YarnListActivity">
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/yarnRecyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#463D55"
+      tools:listitem="@layout/yarn_list_item"/>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:contentDescription="Add Yarn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|end"
+      android:layout_marginEnd="6dp"
+      android:layout_marginBottom="6dp"
+      android:clickable="true"
+      app:backgroundTint="@color/purple_500"
+      app:fabSize="normal"
+      app:srcCompat="@drawable/baseline_add_24"
+      app:tint="@color/light_gray"
+      />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,7 +6,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.yarnify.model.Pattern;
-import com.yarnify.model.Yarn;
 import com.yarnify.repo.Repository;
 
 import java.util.List;

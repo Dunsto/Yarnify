@@ -9,7 +9,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.yarnify.model.Pattern;
-import com.yarnify.model.Yarn;
 
 import java.util.List;
 

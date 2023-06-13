@@ -2,14 +2,11 @@ package com.yarnify.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
-import com.squareup.picasso.Picasso;
 
 @Entity
 public class Pattern implements Parcelable {

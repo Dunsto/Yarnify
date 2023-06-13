@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+*************************************************************************************** -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_purple"
+    tools:context="com.yarnify.AddYarnActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/yarnName"
+                android:hint="Yarn Name"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"
+                app:layout_constraintTop_toTopOf="@+id/parent" />
+
+            <Spinner
+                android:id="@+id/yarnWeightSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SpinnerTextViewItem"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"
+                android:minHeight="48dp"/>
+
+            <EditText
+                android:id="@+id/totalLength"
+                android:hint="Total Length Available"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:minHeight="48dp"/>
+
+            <RadioGroup
+                android:id="@+id/lengthUnits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="54dp"
+                tools:layout_editor_absoluteY="106dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp">
+                <RadioButton
+                    android:id="@+id/yards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yards"
+                    style="@style/SmallRadioButtonStyle" />
+
+                <RadioButton
+                    android:id="@+id/meters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meters"
+                    style="@style/SmallRadioButtonStyle" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/totalWeight"
+                android:hint="Total Weight Available"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:minHeight="48dp"/>
+
+            <RadioGroup
+                android:id="@+id/weightUnits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="54dp"
+                tools:layout_editor_absoluteY="106dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp">
+                <RadioButton
+                    android:id="@+id/grams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grams"
+                    style="@style/SmallRadioButtonStyle" />
+
+                <RadioButton
+                    android:id="@+id/ounces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ounces"
+                    style="@style/SmallRadioButtonStyle" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/colorFamilySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                style="@style/SpinnerTextViewItem"
+                android:minHeight="48dp"/>
+
+            <EditText
+                android:id="@+id/dyeLot"
+                android:hint="Dye Lot"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="15dp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/saveYarnButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonStyle"
+                android:text="Save"
+                app:layout_constraintTop_toBottomOf="@+id/colorFamilySpinner"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

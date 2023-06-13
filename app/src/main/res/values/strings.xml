@@ -1,24 +1,30 @@
+<!-- ***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+*************************************************************************************** -->
+
 <resources>
     <string name="app_name">Yarnify</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_needle_list">NeedleListActivity</string>
+    <string name="title_activity_add_needle">AddNeedleActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <!--key tag strings-->
+    <!-- key tag strings -->
     <string name="id_tag">id</string>
 
-    <string name="lorem_ipsum">
-        Lorem ipsum
-    </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- arrays -->
     <string-array name="knitting_needle_type_choices">
         <item>Straight</item>
         <item>Double Pointed</item>
@@ -79,5 +85,42 @@
         <item>N-15</item>
         <item>P-16</item>
     </string-array>
-    <string name="title_activity_add_needle">AddNeedleActivity</string>
+
+    <string-array name="yarn_weight_options">
+        <item>thread</item>
+        <item>cobweb</item>
+        <item>lace</item>
+        <item>light fingering</item>
+        <item>fingering</item>
+        <item>sport</item>
+        <item>dk</item>
+        <item>worsted</item>
+        <item>aran</item>
+        <item>bulky</item>
+        <item>super bulky</item>
+        <item>jumbo</item>
+    </string-array>
+
+    <string-array name="color_family_options">
+        <item>black</item>
+        <item>blue</item>
+        <item>blue-green</item>
+        <item>blue-purple</item>
+        <item>brown</item>
+        <item>gray</item>
+        <item>green</item>
+        <item>multicolored</item>
+        <item>natural/undyed</item>
+        <item>orange</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>rainbow</item>
+        <item>red</item>
+        <item>red-orange</item>
+        <item>red-purple</item>
+        <item>white</item>
+        <item>yellow</item>
+        <item>yellow-green</item>
+        <item>yellow-orange</item>
+    </string-array>
 </resources>

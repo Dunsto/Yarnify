@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+*************************************************************************************** -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -5,14 +16,17 @@
     android:background="@color/light_purple"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- https://stackoverflow.com/questions/3205387/how-do-i-change-the-text-style-of-a-spinner -->
+    <!-- ***************************************************************************************
+    * Title: How do I change the text style of a spinner?
+    * Author: Joshua Pinter
+    * Date: January 16, 2014
+    * Code version: xml
+    * Availability: https://stackoverflow.com/questions/3205387/how-do-i-change-the-text-style-of-a-spinner
+    *
+    *************************************************************************************** -->
 
-    <!-- SIZE dropdown list (if crochet, letters. if knit, numbers -->
-
-    <!-- LENGTH Text field -->
     <!--TODO: BRAND, MATERIAL, QTY-->
 
-    <!--CRAFT Radio Button Knit or Crochet-->
     <TextView
         android:id="@+id/textNeedleType"
         android:layout_width="match_parent"
@@ -24,6 +38,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="10dp"/>
 
+    <!--CRAFT Radio Button Knit or Crochet-->
     <RadioGroup
         android:id="@+id/craftType"
         android:layout_width="match_parent"
@@ -40,16 +55,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Knit"
-            android:textSize="24dp" />
-            <!--android:onClick="onCraftSelected"-->
+            android:textSize="24dp"
+            android:onClick="onCraftSelected"/>
 
         <RadioButton
             android:id="@+id/crochetHook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Crochet"
-            android:textSize="24dp" />
-        <!--android:onClick="onCraftSelected"-->
+            android:textSize="24dp"
+            android:onClick="onCraftSelected" />
     </RadioGroup>
 
     <!--TYPE DropDownList (needle_type_choices)-->
@@ -102,6 +117,8 @@
             android:onClick="onUnitsSelected" />
     </RadioGroup>
 
+    <!--SIZE DropDownList (needle_size_US_knit_choices,
+    needle_size_US_knit_choices, or needle_size_metric_choices)-->
     <Spinner
         android:id="@+id/needleSizeSpinner"
         android:layout_width="wrap_content"

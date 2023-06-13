@@ -1,3 +1,12 @@
+/***************************************************************************************
+ * Title: Mobile App Development with Android and Java
+ * Author: Frank McCown, Associate Professor of Computer Science, Harding University
+ * Date: 2018-2022
+ * Code version: Java
+ * Availability: https://www.zybooks.com/catalog/mobile-app-development/
+ *
+ ***************************************************************************************/
+
 package com.yarnify.model;
 
 import androidx.annotation.NonNull;
@@ -20,8 +29,6 @@ public class Yarn {
     @ColumnInfo(name = "name")
     private String mName;
 
-    //thread, cobweb, lace, light fingering, fingering, sport, dk, worsted,
-        //aran, bulky, super bulky, jumbo
     @ColumnInfo(name = "yarnWeight")
     private String mYarnWeight;
 
@@ -49,6 +56,7 @@ public class Yarn {
     private String mDyeLot;
 
     //CONSTRUCTOR
+    //TODO: take out colorway - it should be with patterns, not yarn
     public Yarn(@NonNull String name, String yarnWeight, String lengthUnits,
                 int totalLength, String weightUnits, int totalWeight, String colorFamily,
                 String colorway, String dyeLot) {
