@@ -3,14 +3,10 @@ package com.yarnify.API;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import com.yarnify.API.ResponseModels.ResponsePatternAttributes;
-import com.yarnify.API.ResponseModels.ResponsePatternAttributesPhoto;
 import com.yarnify.API.ResponseModels.ResponsePatternList;
 import com.yarnify.API.ResponseUtilities.ToPojo;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 public class RequestTest {
     @Test
