@@ -19,9 +19,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.yarnify.R;
 import com.squareup.picasso.Picasso;
+import com.yarnify.API.ResponseUtilities.UrlToPattern;
 import com.yarnify.model.Pattern;
 import com.yarnify.repo.Repository;
 import com.yarnify.viewmodel.PatternViewModel;
+
+import org.json.JSONException;
 
 public class PatternPageActivity extends AppCompatActivity {
 
@@ -31,6 +34,7 @@ public class PatternPageActivity extends AppCompatActivity {
     public TextView text1, text2, text3, text4, text5;
     public Button saveButton;
     public boolean isSaved;
+    private Pattern pat = null;
 
     private PatternViewModel patternViewModel;
     private static final String TAG = "PatternPageActivity";
@@ -41,6 +45,7 @@ public class PatternPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern_page);
         setBackButton();
+        Log.d("This worked1", "we made it this far");
 
         //Access the database via the ViewModel
         patternViewModel = new ViewModelProvider(this).get(PatternViewModel.class);
@@ -55,7 +60,15 @@ public class PatternPageActivity extends AppCompatActivity {
         text5 = findViewById(R.id.patternTotalYardage);
 
         Intent intent = getIntent(); //grabs intent from parent
-        Pattern pat = intent.getParcelableExtra("clicked_item"); //grabs parceled patternObject that was clicked on to use in this class
+        //Pattern pat = intent.getParcelableExtra("clicked_item"); //grabs parceled patternObject that was clicked on to use in this class
+
+        UrlToPattern urlToPattern = new UrlToPattern();
+        long clickedItemApiId = getIntent().getLongExtra("clicked_item_id", -1);
+        try {
+            pat = urlToPattern.UrlToPatternById(clickedItemApiId);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
         //sets patternObject's data to the pattern page's layout views
         Picasso.get().load(pat.getImageResource()).into(image);

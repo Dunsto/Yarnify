@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.yarnify.databinding.FragmentHomeBinding;
-import com.yarnify.API.ResponseUtilities.RequestToPattern;
+import com.yarnify.API.ResponseUtilities.UrlToPattern;
 import com.yarnify.cardAdapter;
 import com.yarnify.model.Pattern;
-import com.yarnify.viewmodel.PatternViewModel;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -23,11 +24,8 @@ public class HomeFragment extends Fragment {
 
     //binding is an instance of the auto-generated FragmentHomeBinding class, which is used to bind the layout XML elements to their corresponding Java objects.
     private FragmentHomeBinding binding;
-    private PatternViewModel patternViewModel;
-    private RequestToPattern requestToPattern;
 
     ArrayList<Pattern> exampleList = new ArrayList<>(); //array of pattern objects
-    private String url = "patterns.json?ids=";
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,17 +37,23 @@ public class HomeFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        UrlToPattern urlToPattern = new UrlToPattern();
+        try {
+            //featured page with 100 patterns I guess?
+            exampleList = urlToPattern.UrlToPatternList("patterns/search.json?page_size=100");
+            //exampleList = urlToPattern.UrlToPatternList("patterns/search.json?query=knit");
+            // Use the patterns list as needed
+        } catch (JSONException e) {
+            e.printStackTrace();
+            // Handle the exception or show an error message
+        }
 
-        //api pattern for testing. Turns api url to pattern object and adds to list to be displayed
-        exampleList.add(RequestToPattern.toPatternByUrl(url + "1335913"));
-        exampleList.add(RequestToPattern.toPatternByUrl(url + "1337254"));
-        exampleList.add(RequestToPattern.toPatternByUrl(url + "1338190"));
 
         //hardcoded example pattern objects
-        exampleList.add(new Pattern("https://images4-f.ravelrycache.com/uploads/nawatramani/926341990/Making_Waves_4_small2.jpg", "Making Waves", "Nita Awatramani", "Knitting", "https://www.ravelry.com/patterns/library/making-waves-31", 0, 0));
+        /*exampleList.add(new Pattern("https://images4-f.ravelrycache.com/uploads/nawatramani/926341990/Making_Waves_4_small2.jpg", "Making Waves", "Nita Awatramani", "Knitting", "https://www.ravelry.com/patterns/library/making-waves-31", 0, 0));
         exampleList.add(new Pattern("https://images4-f.ravelrycache.com/uploads/Finnceburk/926533726/IMG_9809_medium.jpg", "Dragon Derek", "Finn Burke", "Crochet", "https://www.ravelry.com/patterns/library/dragon-derek", 383, 0));
         exampleList.add(new Pattern("https://images4-f.ravelrycache.com/uploads/mongaknit/926461293/20230513_1431102_small2.png", "DDuDDu", "mongaknit kang", "\n" +
-                "Knitting", "https://www.ravelry.com/patterns/library/dduddu", 0, 0));
+                "Knitting", "https://www.ravelry.com/patterns/library/dduddu", 0, 0));*/
 
 
         setUpRecyclerView(); //method initializes and sets the recyclerview, adapter, and layout manager

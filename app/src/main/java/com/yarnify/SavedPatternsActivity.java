@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.yarnify.R;
 import com.yarnify.model.Pattern;
@@ -39,6 +40,10 @@ public class SavedPatternsActivity extends AppCompatActivity {
                 savedPatternExampleList.clear();
                 savedPatternExampleList.addAll(patterns);
                 Log.d("saved patterns amount", String.valueOf(savedPatternExampleList.size()));
+                if (savedPatternExampleList.isEmpty()) {
+                    Log.d("Search Frag", "No search results!");
+                    Toast.makeText(getApplicationContext(), "You don't have any saved patterns yet!", Toast.LENGTH_SHORT).show();
+                }
                 setUpRecyclerView(context); //method initializes and sets the recyclerview, adapter, and layout manager
             }
         });

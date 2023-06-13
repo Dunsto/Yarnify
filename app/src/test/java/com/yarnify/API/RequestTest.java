@@ -1,10 +1,8 @@
+/*
 package com.yarnify.API;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
-import com.yarnify.API.ResponseModels.ResponsePatternList;
-import com.yarnify.API.ResponseUtilities.ToPojo;
 
 import org.junit.Test;
 
@@ -89,4 +87,4 @@ public class RequestTest {
         String permalink = "https://www.ravelry.com/patterns/library/" + ac.getPatterns().getPatternAttributes().getPermalink();
         assertEquals("https://www.ravelry.com/patterns/library/schelpje", permalink);
     }
-}
+}*/

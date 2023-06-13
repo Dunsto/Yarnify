@@ -40,4 +40,5 @@
         <item name="android:radius">32dp</item>
         <item name="android:textColor">@color/light_gray</item>
     </style>
+
 </resources>

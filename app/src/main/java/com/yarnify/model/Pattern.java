@@ -9,7 +9,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Pattern implements Parcelable {
+public class Pattern {
 
     //TABLE COLUMNS
     @PrimaryKey(autoGenerate = true)
@@ -18,6 +18,9 @@ public class Pattern implements Parcelable {
 
     @ColumnInfo(name="updated")
     private long mUpdateTime;
+
+    @ColumnInfo(name="apiId")
+    private long mApiId;
 
     @ColumnInfo(name="image")
     private String mImageResource;
@@ -53,7 +56,8 @@ public class Pattern implements Parcelable {
     }
 
     // CONSTRUCTOR
-    public Pattern(String image, @NonNull String title, @NonNull String creator, String craft, String patternURL, int minYardage, int maxYardage) {
+    public Pattern(long apiId, String image, @NonNull String title, @NonNull String creator, String craft, String patternURL, int minYardage, int maxYardage) {
+        this.mApiId = apiId;
         this.mImageResource = image;
         this.mTitle = title;
         this.mCreator = creator;
@@ -74,6 +78,9 @@ public class Pattern implements Parcelable {
 
     public long getUpdateTime() { return  mUpdateTime; }
     public void setUpdateTime(long updateTime){ this.mUpdateTime = updateTime; }
+
+    public long getApiId() { return mApiId; }
+    public void setApiId(long apiId) { this.mApiId = apiId; }
 
     public String getImageResource() { return mImageResource; }
     public void setImageResource(String imageResource) { this.mImageResource = imageResource; }
@@ -96,47 +103,4 @@ public class Pattern implements Parcelable {
     public int getMaxYardage() { return mMaxYardage; }
     public void setMaxYardage(int maxYardage) { this.mMaxYardage = maxYardage; }
 
-
-
-    //parcelable implementation below
-    //allows instances of this object to be passed through activities
-
-    protected Pattern(Parcel in) {
-        mImageResource = in.readString();
-        mTitle = in.readString();
-        mCreator = in.readString();
-        mCraft = in.readString();
-        mURL = in.readString();
-        mMinYardage = in.readInt();
-        mMaxYardage = in.readInt();
-    }
-
-    public static final Parcelable.Creator<Pattern> CREATOR = new Parcelable.Creator<Pattern>() {
-        @Override
-        public Pattern createFromParcel(Parcel in) {
-            return new Pattern(in);
-        }
-
-        @Override
-        public Pattern[] newArray(int size) {
-            return new Pattern[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(mImageResource);
-        parcel.writeString(mTitle);
-        parcel.writeString(mCreator);
-        parcel.writeString(mCraft);
-        parcel.writeString(mURL);
-        parcel.writeInt(mMinYardage);
-        parcel.writeInt(mMaxYardage);
-    }
 }
-
