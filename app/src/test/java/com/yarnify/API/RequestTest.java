@@ -9,6 +9,8 @@ import com.yarnify.API.ResponseUtilities.ToPojo;
 import org.junit.Test;
 
 public class RequestTest {
+
+    //First tests if we are getting a response from our HTTP request
     @Test
     public void getResponseNotNull() {
         Request request =
@@ -16,6 +18,8 @@ public class RequestTest {
         assertNotNull(request.getResponse());
     }
 
+    //This tests if the response has been deserialized into it's Model classes
+    //The class toPojo takes a request and uses Gson to deserialize it into "POJO"s - Plain Old Java Object
     @Test
     public void getResponseDeserializedTitle() {
         Request request = new Request("patterns.json?ids=" + "1335913");

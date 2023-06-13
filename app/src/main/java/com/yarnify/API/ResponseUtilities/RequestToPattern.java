@@ -2,10 +2,19 @@ package com.yarnify.API.ResponseUtilities;
 
 import com.yarnify.API.Request;
 import com.yarnify.API.ResponseModels.ResponsePatternList;
-import com.yarnify.API.ResponseUtilities.ToPojo;
 import com.yarnify.model.Pattern;
 
+
+/*
+    This class take the URL endpoint of the Ravelry API as a string,
+    creates a new Request from the url, deserializes it using Gson(the toPojo class)
+    and then sets the properties we are using in the app to a Pattern object.
+
+ */
+
 public final class RequestToPattern {
+
+
 
     private RequestToPattern() {
         // Private constructor to prevent instantiation

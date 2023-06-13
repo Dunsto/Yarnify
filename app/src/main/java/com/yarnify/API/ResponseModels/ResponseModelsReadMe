@@ -1,0 +1,10 @@
+
+These Response Models are required for the deserialization process when using Gson.
+
+Gson parses a JSON object and returns an object that represents that JSONs properties according to
+the Model classes.
+
+According to appbrain.com, Gson is the most popular JSON library. it's used in 34% of apps and
+represents 52% of Android JSON parsing library installs.
+
+https://www.appbrain.com/stats/libraries/tag/json/json-parsing-libraries
